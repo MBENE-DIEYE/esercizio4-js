@@ -77,4 +77,10 @@ function callbackAnnidati1(parm1,parm2,callback){
         console.log(error)
     })
     
-    
+    // ------------------------------------------promessa con finally----------------------
+
+    function promessaConFinally(){
+        return new Promise(()=>{
+            
+        })
+    }
