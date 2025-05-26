@@ -64,13 +64,15 @@ function callbackAnnidati1(parm1,parm2,callback){
          let promessaSimplic =  new Promise (function(resolve,reject){
             let ok=true
             
-            if(ok){ 
+           setTimeout(()=>{
+             if(ok){ 
                 resolve("promessa risolvato")
             }
             else{
                return reject("promessa refuitato")
             }
-           });
+           },2000);
+           })
    
   promessaSimplic.catch(
         function(error){
@@ -79,8 +81,20 @@ function callbackAnnidati1(parm1,parm2,callback){
     
     // ------------------------------------------promessa con finally----------------------
 
-    function promessaConFinally(){
-        return new Promise(()=>{
-            
+    function promessaConFinally(item){
+        return new Promise((resolve,reject)=>{
+           setTimeout(()=>{
+             if(item){
+                resolve("promesso acceta")
+            }else{
+                reject("promessa refiuta")
+            }
+           })
+        }).catch((error)=>{
+            console.log(error)
         })
+        .finally(()=>{
+            console.log("messaggio nel blocco finally")
+        })
+
     }
