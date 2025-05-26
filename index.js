@@ -47,13 +47,34 @@ function callbackAnnidati1(parm1,parm2,callback){
     })
 
     // --------------------------------creare una promessa simplice------------------------
-    let variabili = new Promise (function(){
-        setTimeout(function(){
-            console.log("promessa risolvato")
+    function promessaSimplice(){
+        return new Promise ((resolve) =>{
+        setTimeout(() =>{
+            resolve("promessa risolvato")
         },2000)
     })
-    variabili.then(
-        function(resultato){
-            console.log(resultato)
-        }
-    )
+    }
+    
+    promessaSimplice().then(messaggio =>{
+            console.log(messaggio)
+        })
+
+        // -------------------------------------------gestione di una promessa con catch-------------------------
+
+         let promessaSimplic =  new Promise (function(resolve,reject){
+            let ok=true
+            
+            if(ok){ 
+                resolve("promessa risolvato")
+            }
+            else{
+               return reject("promessa refuitato")
+            }
+           });
+   
+  promessaSimplic.catch(
+        function(error){
+        console.log(error)
+    })
+    
+    
