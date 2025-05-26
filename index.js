@@ -29,3 +29,14 @@ function somma(val1,val2,callback){
 somma(10,3,function(result){
     console.log("il resultato  è :",result)
 })
+
+// -----------------------------callback annidati --------------------------------------------
+
+function callbackAnnidati1(parm1,parm2,callback){
+    callback(parm1*parm2)
+
+     function callbackAnnidati2(parm3,parm4,callback){
+        callback(parm3 + parm4)
+    }
+}
+ 
