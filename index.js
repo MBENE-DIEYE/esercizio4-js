@@ -35,8 +35,25 @@ somma(10,3,function(result){
 function callbackAnnidati1(parm1,parm2,callback){
     callback(parm1*parm2)
 
-     function callbackAnnidati2(parm3,parm4,callback){
+}
+  function callbackAnnidati2(parm3,parm4,callback){
         callback(parm3 + parm4)
     }
-}
- 
+
+    callbackAnnidati1(4,5,function(result){
+        callbackAnnidati2(3,result,function(resultato){
+            console.log('il resultato è :',resultato )
+        })
+    })
+
+    // --------------------------------creare una promessa simplice------------------------
+    let variabili = new Promise (function(){
+        setTimeout(function(){
+            console.log("promessa risolvato")
+        },2000)
+    })
+    variabili.then(
+        function(resultato){
+            console.log(resultato)
+        }
+    )
