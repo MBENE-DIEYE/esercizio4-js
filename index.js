@@ -1,9 +1,31 @@
-// ------------------------------------funczioni di base con callback-----------------------------------
+// ------------------------------------funczione di base con callback-----------------------------------
 function operation(num1,num2,callback){
-    callback(num1 + num2)
+    const result =(num1 + num2)
+    console.log("la somma è :",result)
+
+
+
+if(typeof callback ==='function'){
+    callback();
+}
+else{
+    console.log('non è una foctiona')
 }
 
-operation(4,6,function(result){
-     console.log("la somme è:", result);
-    
+}
+
+ function uncallback(){
+    console.log("fonction seguito")
+ }
+
+operation(4,6, uncallback())
+
+// -----------------------------------------functione con callback e passaggio di parametro--------------------------
+
+function somma(val1,val2,callback){
+    callback(val1 - val2)
+}
+
+somma(10,3,function(result){
+    console.log("il resultato  è :",result)
 })
