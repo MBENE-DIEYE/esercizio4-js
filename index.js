@@ -221,4 +221,25 @@
 
     // ----------------------------utilisare promise race------------------
 
-    
+    function promessarace1(){
+        return new Promise((resolve)=>{
+          setTimeout(()=>{
+              resolve("resultao1 risolvata")
+          },3000)
+        })
+    }
+
+     function promessarace2(){
+        return new Promise((resolve)=>{
+          setTimeout(()=>{
+              resolve("resultao2 risolvata")
+          },1000)
+        })
+    }
+
+    Promise.race([promessarace1(),promessarace2()])
+    .then((result)=>{
+        console.log(result)
+    }).catch((error)=>{
+        console.error(error)
+    })
