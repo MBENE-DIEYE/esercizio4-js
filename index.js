@@ -1,100 +1,117 @@
 // ------------------------------------funczione di base con callback-----------------------------------
-function operation(num1,num2,callback){
-    const result =(num1 + num2)
-    console.log("la somma è :",result)
+// function operation(num1,num2,callback){
+//     const result =(num1 + num2)
+//     console.log("la somma è :",result)
 
 
 
-if(typeof callback ==='function'){
-    callback();
-}
-else{
-    console.log('non è una foctiona')
-}
+// if(typeof callback ==='function'){
+//     callback();
+// }
+// else{
+//     console.log('non è una foctiona')
+// }
 
-}
+// }
 
- function uncallback(){
-    console.log("fonction seguito")
- }
+//  function uncallback(){
+//     console.log("fonction seguito")
+//  }
 
-operation(4,6, uncallback())
+// operation(4,6, uncallback())
 
-// -----------------------------------------functione con callback e passaggio di parametro--------------------------
+// // -----------------------------------------functione con callback e passaggio di parametro--------------------------
 
-function somma(val1,val2,callback){
-    callback(val1 - val2)
-}
+// function somma(val1,val2,callback){
+//     callback(val1 - val2)
+// }
 
-somma(10,3,function(result){
-    console.log("il resultato  è :",result)
-})
+// somma(10,3,function(result){
+//     console.log("il resultato  è :",result)
+// })
 
-// -----------------------------callback annidati --------------------------------------------
+// // -----------------------------callback annidati --------------------------------------------
 
-function callbackAnnidati1(parm1,parm2,callback){
-    callback(parm1*parm2)
+// function callbackAnnidati1(parm1,parm2,callback){
+//     callback(parm1*parm2)
 
-}
-  function callbackAnnidati2(parm3,parm4,callback){
-        callback(parm3 + parm4)
-    }
+// }
+//   function callbackAnnidati2(parm3,parm4,callback){
+//         callback(parm3 + parm4)
+//     }
 
-    callbackAnnidati1(4,5,function(result){
-        callbackAnnidati2(3,result,function(resultato){
-            console.log('il resultato è :',resultato )
-        })
-    })
+//     callbackAnnidati1(4,5,function(result){
+//         callbackAnnidati2(3,result,function(resultato){
+//             console.log('il resultato è :',resultato )
+//         })
+//     })
 
-    // --------------------------------creare una promessa simplice------------------------
-    function promessaSimplice(){
-        return new Promise ((resolve) =>{
-        setTimeout(() =>{
-            resolve("promessa risolvato")
-        },2000)
-    })
-    }
+//     // --------------------------------creare una promessa simplice------------------------
+//     function promessaSimplice(){
+//         return new Promise ((resolve) =>{
+//         setTimeout(() =>{
+//             resolve("promessa risolvato")
+//         },2000)
+//     })
+//     }
     
-    promessaSimplice().then(messaggio =>{
-            console.log(messaggio)
-        })
+//     promessaSimplice().then(messaggio =>{
+//             console.log(messaggio)
+//         })
 
-        // -------------------------------------------gestione di una promessa con catch-------------------------
+//         // -------------------------------------------gestione di una promessa con catch-------------------------
 
-         let promessaSimplic =  new Promise (function(resolve,reject){
-            let ok=true
+//          let promessaSimplic =  new Promise (function(resolve,reject){
+//             let ok=true
             
-           setTimeout(()=>{
-             if(ok){ 
-                resolve("promessa risolvato")
-            }
-            else{
-               return reject("promessa refuitato")
-            }
-           },2000);
-           })
+//            setTimeout(()=>{
+//              if(ok){ 
+//                 resolve("promessa risolvato")
+//             }
+//             else{
+//                return reject("promessa refuitato")
+//             }
+//            },2000);
+//            })
    
-  promessaSimplic.catch(
-        function(error){
-        console.log(error)
-    })
+//   promessaSimplic.catch(
+//         function(error){
+//         console.log(error)
+//     })
     
-    // ------------------------------------------promessa con finally----------------------
+//     // ------------------------------------------promessa con finally----------------------
 
-    function promessaConFinally(item){
-        return new Promise((resolve,reject)=>{
-           setTimeout(()=>{
-             if(item){
-                resolve("promesso acceta")
-            }else{
-                reject("promessa refiuta")
-            }
-           })
-        }).catch((error)=>{
-            console.log(error)
-        })
-        .finally(()=>{
-            console.log("messaggio nel blocco finally")
-        })
+//     function  promessaConFinally(item){
+//         return new Promise((resolve,reject)=>{
+//            setTimeout(()=>{
+//              if(item){
+//                 resolve("promesso acceta")
+//             }else{
+//                 reject("promessa refiuta")
+//             }
+//            },2000)
+//         }).catch((error)=>{
+//             console.log(error)
+//         })
+//         .finally(()=>{
+//             console.log("messaggio nel blocco finally")
+//         })
 
+//     }
+//     promessaConFinally("ciao")
+
+    // -------------------------catena di promessa simplice-------------------------------
+
+    function catenaDiPromessa(numero){
+        return new Promise((resolve)=>{
+            setTimeout(()=>{
+                resolve("il numero è :", numero)
+            })
+        }).then((result)=>{
+            result = (numero*2) + 3
+            console.log(result)
+        })
     }
+    catenaDiPromessa(4)
+
+    // ----------------------------------------
