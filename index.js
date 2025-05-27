@@ -195,3 +195,30 @@
     gestioniDegliErroriConCatenaDiPromessa()
 
     // ------------------utiliasare promise all--------------------------------
+
+    function promessa1(){
+        return new Promise((resolve)=>{
+          setTimeout(()=>{
+              resolve("promessa1 risolvata")
+          },2000)
+        })
+    }
+
+     function promessa2(){
+        return new Promise((resolve)=>{
+          setTimeout(()=>{
+              resolve("promessa2 risolvata")
+          },4000)
+        })
+    }
+
+    Promise.all([promessa1(),promessa2()])
+    .then((result)=>{
+        console.log(result)
+    }).catch((error)=>{
+        console.error(error)
+    })
+
+    // ----------------------------utilisare promise race------------------
+
+    
