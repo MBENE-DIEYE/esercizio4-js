@@ -106,7 +106,7 @@
         return new Promise((resolve)=>{
             setTimeout(()=>{
                 resolve("il numero è :", numero)
-            })
+            },1000)
         }).then((result)=>{
             result = (numero*2) + 3
             console.log(result)
@@ -114,4 +114,20 @@
     }
     catenaDiPromessa(4)
 
-    // ----------------------------------------
+    // ----------------------------------------catena di promessa con condizioni-------------------------------------
+
+    function promessaConCondizioni(numero){
+        return new Promise((resolve)=>{
+            setTimeout(()=>{
+                resolve("il numero è:",numero)
+            },1000)
+        }).then(()=>{
+          if(numero % 2===0){
+            console.log("il numero è pari")
+          }else{
+            console.log("il numero è dispari")
+          }
+        })
+    }
+
+    promessaConCondizioni(6)
