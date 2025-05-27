@@ -193,3 +193,5 @@
         })
     }
     gestioniDegliErroriConCatenaDiPromessa()
+
+    // ------------------utiliasare promise all--------------------------------
