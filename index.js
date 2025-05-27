@@ -102,54 +102,54 @@
 
     // -------------------------catena di promessa simplice-------------------------------
 
-    function catenaDiPromessa(numero){
-        return new Promise((resolve)=>{
-            setTimeout(()=>{
-                resolve("il numero è :", numero)
-            },1000)
-        }).then((result)=>{
-            result = (numero*2) + 3
-            console.log(result)
-        })
-    }
-    catenaDiPromessa(4)
+    // function catenaDiPromessa(numero){
+    //     return new Promise((resolve)=>{
+    //         setTimeout(()=>{
+    //             resolve("il numero è :", numero)
+    //         },1000)
+    //     }).then((result)=>{
+    //         result = (numero*2) + 3
+    //         console.log(result)
+    //     })
+    // }
+    // catenaDiPromessa(4)
 
-    // ----------------------------------------catena di promessa con condizioni-------------------------------------
+    // // ----------------------------------------catena di promessa con condizioni-------------------------------------
 
-    function promessaConCondizioni(numero){
-        return new Promise((resolve)=>{
-            setTimeout(()=>{
-                resolve("il numero è:",numero)
-            },1000)
-        }).then(()=>{
-          if(numero % 2===0){
-            console.log("il numero è pari")
-          }else{
-            console.log("il numero è dispari")
-          }
-        })
-    }
+    // function promessaConCondizioni(numero){
+    //     return new Promise((resolve)=>{
+    //         setTimeout(()=>{
+    //             resolve("il numero è:",numero)
+    //         },1000)
+    //     }).then(()=>{
+    //       if(numero % 2===0){
+    //         console.log("il numero è pari")
+    //       }else{
+    //         console.log("il numero è dispari")
+    //       }
+    //     })
+    // }
 
-    promessaConCondizioni(6)
+    // promessaConCondizioni(6)
 
-    // --------------------------------catena di promessa con gestioni degli errori------------------
+    // // --------------------------------catena di promessa con gestioni degli errori------------------
 
-    function gestioniDegliErrori(item){
-        return new Promise((resolve,reject)=>{
-            if(item){
-                resolve("valore reisolvato")
-            }else{
-                reject("valore rifiutato")
-            }
-        }).then((resultato)=>{
-            console.log(resultato)
-        }),(error)=>{
-            console.error(error)
-        }
-    }
-    gestioniDegliErrori("ciao")
+    // function gestioniDegliErrori(item){
+    //     return new Promise((resolve,reject)=>{
+    //         if(item){
+    //             resolve("valore reisolvato")
+    //         }else{
+    //             reject("valore rifiutato")
+    //         }
+    //     }).then((resultato)=>{
+    //         console.log(resultato)
+    //     }),(error)=>{
+    //         console.error(error)
+    //     }
+    // }
+    // gestioniDegliErrori("ciao")
 
-    // -----------------------------------------------gestioni degli errori con catch-----------------
+    // // -----------------------------------------------gestioni degli errori con catch-----------------
 
     function gestioniDegliErroriConCatch(){
         return new Promise((reject)=>{
@@ -162,3 +162,20 @@
     }
 
     gestioniDegliErroriConCatch()
+
+    // ----------------------------------gestioni degli errori con then e catch-------------------------------------
+
+    function gestioniDegliErroriConThenCatch(num){
+        return new Promise((resolve,reject)=>{
+            if(num == true){
+                resolve("promessa resolvata")
+            }else{
+                reject("promessa refuitato")
+            }
+        }).then((result)=>{
+            console.log(result)
+        }).catch((errore)=>{
+            console.error(errore)
+        })
+    }
+    gestioniDegliErroriConThenCatch("ciao")
