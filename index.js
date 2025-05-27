@@ -131,3 +131,20 @@
     }
 
     promessaConCondizioni(6)
+
+    // --------------------------------catena di promessa con gestioni degli errori------------------
+
+    function gestioniDegliErrori(item){
+        return new Promise((resolve,reject)=>{
+            if(item){
+                resolve("valore reisolvato")
+            }else{
+                reject("valore rifiutato")
+            }
+        }).then((resultato)=>{
+            console.log(resultato)
+        }),(error)=>{
+            console.error(error)
+        }
+    }
+    gestioniDegliErrori("ciao")
