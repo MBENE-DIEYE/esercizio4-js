@@ -148,3 +148,17 @@
         }
     }
     gestioniDegliErrori("ciao")
+
+    // -----------------------------------------------gestioni degli errori con catch-----------------
+
+    function gestioniDegliErroriConCatch(){
+        return new Promise((reject)=>{
+            reject("promessa refiutata")
+        }).then((result)=>{
+            console.log(result)
+        }).catch((error)=>{
+            console.error(error)
+        })
+    }
+
+    gestioniDegliErroriConCatch()
