@@ -151,93 +151,118 @@
 
     // // -----------------------------------------------gestioni degli errori con catch-----------------
 
-    function gestioniDegliErroriConCatch(){
+    // function gestioniDegliErroriConCatch(){
+    //     return new Promise((reject)=>{
+    //         reject("promessa refiutata")
+    //     }).then((result)=>{
+    //         console.log(result)
+    //     }).catch((error)=>{
+    //         console.error(error)
+    //     })
+    // }
+
+    // gestioniDegliErroriConCatch()
+
+    // // ----------------------------------gestioni degli errori con then e catch-------------------------------------
+
+    // function gestioniDegliErroriConThenCatch(num){
+    //     return new Promise((resolve,reject)=>{
+    //         if(num == true){
+    //             resolve("promessa resolvata")
+    //         }else{
+    //             reject("promessa refuitato")
+    //         }
+    //     }).then((result)=>{
+    //         console.log(result)
+    //     }).catch((errore)=>{
+    //         console.error(errore)
+    //     })
+    // }
+    // gestioniDegliErroriConThenCatch("ciao")
+
+    // // ----------------------------gestioni degli errori con una catena di promessa---------------------
+
+    // function gestioniDegliErroriConCatenaDiPromessa(){
+    //     return new Promise((resolve,reject)=>{
+    //         resolve("valore resolvata")
+    //         reject("valore refuitata")
+    //     }).then((result)=>{
+    //         console.log(result)
+    //     }).catch((error)=>{
+    //         console.error(error)
+    //     })
+    // }
+    // gestioniDegliErroriConCatenaDiPromessa()
+
+    // // ------------------utiliasare promise all--------------------------------
+
+    // function promessa1(){
+    //     return new Promise((resolve)=>{
+    //       setTimeout(()=>{
+    //           resolve("promessa1 risolvata")
+    //       },2000)
+    //     })
+    // }
+
+    //  function promessa2(){
+    //     return new Promise((resolve)=>{
+    //       setTimeout(()=>{
+    //           resolve("promessa2 risolvata")
+    //       },4000)
+    //     })
+    // }
+
+    // Promise.all([promessa1(),promessa2()])
+    // .then((result)=>{
+    //     console.log(result)
+    // }).catch((error)=>{
+    //     console.error(error)
+    // })
+
+    // // ----------------------------utilisare promise race------------------
+
+    // function promessarace1(){
+    //     return new Promise((resolve)=>{
+    //       setTimeout(()=>{
+    //           resolve("resultao1 risolvata")
+    //       },3000)
+    //     })
+    // }
+
+    //  function promessarace2(){
+    //     return new Promise((resolve)=>{
+    //       setTimeout(()=>{
+    //           resolve("resultao2 risolvata")
+    //       },1000)
+    //     })
+    // }
+
+    // Promise.race([promessarace1(),promessarace2()])
+    // .then((result)=>{
+    //     console.log(result)
+    // }).catch((error)=>{
+    //     console.error(error)
+    // })
+
+    // -------------------------------------------------utilisare promise.allsettled----------------
+
+    function promiseAllSettledUno(){
+        return new Promise((resolve)=>{
+            resolve("promessa uno reisolvata")
+        })
+    }
+    function promiseAllSettledDue(){
+        return new Promise((resolve)=>{
+            resolve("promessa due risolvata")
+        })
+    }
+    function promiseAllSettledTre(){
         return new Promise((reject)=>{
-            reject("promessa refiutata")
-        }).then((result)=>{
-            console.log(result)
-        }).catch((error)=>{
-            console.error(error)
+            reject("promessa tre refiutata")
         })
     }
 
-    gestioniDegliErroriConCatch()
-
-    // ----------------------------------gestioni degli errori con then e catch-------------------------------------
-
-    function gestioniDegliErroriConThenCatch(num){
-        return new Promise((resolve,reject)=>{
-            if(num == true){
-                resolve("promessa resolvata")
-            }else{
-                reject("promessa refuitato")
-            }
-        }).then((result)=>{
-            console.log(result)
-        }).catch((errore)=>{
-            console.error(errore)
-        })
-    }
-    gestioniDegliErroriConThenCatch("ciao")
-
-    // ----------------------------gestioni degli errori con una catena di promessa---------------------
-
-    function gestioniDegliErroriConCatenaDiPromessa(){
-        return new Promise((resolve,reject)=>{
-            resolve("valore resolvata")
-            reject("valore refuitata")
-        }).then((result)=>{
-            console.log(result)
-        }).catch((error)=>{
-            console.error(error)
-        })
-    }
-    gestioniDegliErroriConCatenaDiPromessa()
-
-    // ------------------utiliasare promise all--------------------------------
-
-    function promessa1(){
-        return new Promise((resolve)=>{
-          setTimeout(()=>{
-              resolve("promessa1 risolvata")
-          },2000)
-        })
-    }
-
-     function promessa2(){
-        return new Promise((resolve)=>{
-          setTimeout(()=>{
-              resolve("promessa2 risolvata")
-          },4000)
-        })
-    }
-
-    Promise.all([promessa1(),promessa2()])
-    .then((result)=>{
-        console.log(result)
-    }).catch((error)=>{
-        console.error(error)
-    })
-
-    // ----------------------------utilisare promise race------------------
-
-    function promessarace1(){
-        return new Promise((resolve)=>{
-          setTimeout(()=>{
-              resolve("resultao1 risolvata")
-          },3000)
-        })
-    }
-
-     function promessarace2(){
-        return new Promise((resolve)=>{
-          setTimeout(()=>{
-              resolve("resultao2 risolvata")
-          },1000)
-        })
-    }
-
-    Promise.race([promessarace1(),promessarace2()])
+    Promise.allSettled([promiseAllSettledUno(),promiseAllSettledDue(),promiseAllSettledTre()])
     .then((result)=>{
         console.log(result)
     }).catch((error)=>{
