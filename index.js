@@ -268,3 +268,24 @@
     }).catch((error)=>{
         console.error(error)
     })
+
+    // -----------------------------------------funziona asincrona simplice-----------------------------
+
+    async function asincronaSimplice(resultato) {
+    //    let  resultat = resultato*2
+        return new Promise((resolve)=>{
+             setTimeout(()=>{
+                resolve(" il resultato è :",resultato)
+            },2000)
+        }).then((result)=>{
+            console.log(result)
+        })
+           
+    }
+    asincronaSimplice(4)
+
+    async function init() {
+        let res = await asincronaSimplice()
+        console.log(res)
+    }
+init()
