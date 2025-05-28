@@ -303,3 +303,34 @@ async function erroriTryCatch() {
     
 }
 erroriTryCatch()
+
+// --------------------------------funzione asincrone in serie--------------------
+
+async function asincroneInSerieUno() {
+    return new Promise((resolve)=>{
+        setTimeout(()=>{
+            resolve("asincroneInSerieUno risolvata")
+        },2000)
+    }).then((result)=>{
+        console.log(result)
+    })
+}
+asincroneInSerieUno()
+
+async function asincroneInSerieDue() {
+    return new Promise((resolve)=>{
+        setTimeout(()=>{
+            resolve("asincroneInSerieDue risolvata")
+        },3000)
+    }).then((result)=>{
+        console.log(result)
+    })
+}
+asincroneInSerieDue()
+
+async function asincroneInSerieTre() {
+    let result1 = await asincroneInSerieUno()
+    let result2 = await asincroneInSerieDue()
+    console.log(result1,result2)
+}
+asincroneInSerieTre()
