@@ -102,193 +102,193 @@
 
     // -------------------------catena di promessa simplice-------------------------------
 
-    // function catenaDiPromessa(numero){
-    //     return new Promise((resolve)=>{
-    //         setTimeout(()=>{
-    //             resolve("il numero è :", numero)
-    //         },1000)
-    //     }).then((result)=>{
-    //         result = (numero*2) + 3
-    //         console.log(result)
-    //     })
-    // }
-    // catenaDiPromessa(4)
+    function catenaDiPromessa(numero){
+        return new Promise((resolve)=>{
+            setTimeout(()=>{
+                resolve("il numero è :", numero)
+            },1000)
+        }).then((result)=>{
+            result = (numero*2) + 3
+            console.log(result)
+        })
+    }
+    catenaDiPromessa(4)
 
-    // // ----------------------------------------catena di promessa con condizioni-------------------------------------
+    // ----------------------------------------catena di promessa con condizioni-------------------------------------
 
-    // function promessaConCondizioni(numero){
-    //     return new Promise((resolve)=>{
-    //         setTimeout(()=>{
-    //             resolve("il numero è:",numero)
-    //         },1000)
-    //     }).then(()=>{
-    //       if(numero % 2===0){
-    //         console.log("il numero è pari")
-    //       }else{
-    //         console.log("il numero è dispari")
-    //       }
-    //     })
-    // }
+    function promessaConCondizioni(numero){
+        return new Promise((resolve)=>{
+            setTimeout(()=>{
+                resolve("il numero è:",numero)
+            },1000)
+        }).then(()=>{
+          if(numero % 2===0){
+            console.log("il numero è pari")
+          }else{
+            console.log("il numero è dispari")
+          }
+        })
+    }
 
-    // promessaConCondizioni(6)
+    promessaConCondizioni(6)
 
-    // // --------------------------------catena di promessa con gestioni degli errori------------------
+    // --------------------------------catena di promessa con gestioni degli errori------------------
 
-    // function gestioniDegliErrori(item){
-    //     return new Promise((resolve,reject)=>{
-    //         if(item){
-    //             resolve("valore reisolvato")
-    //         }else{
-    //             reject("valore rifiutato")
-    //         }
-    //     }).then((resultato)=>{
-    //         console.log(resultato)
-    //     }),(error)=>{
-    //         console.error(error)
-    //     }
-    // }
-    // gestioniDegliErrori("ciao")
+    function gestioniDegliErrori(item){
+        return new Promise((resolve,reject)=>{
+            if(item){
+                resolve("valore reisolvato")
+            }else{
+                reject("valore rifiutato")
+            }
+        }).then((resultato)=>{
+            console.log(resultato)
+        }),(error)=>{
+            console.error(error)
+        }
+    }
+    gestioniDegliErrori("ciao")
 
-    // // -----------------------------------------------gestioni degli errori con catch-----------------
+    // -----------------------------------------------gestioni degli errori con catch-----------------
 
-    // function gestioniDegliErroriConCatch(){
-    //     return new Promise((reject)=>{
-    //         reject("promessa refiutata")
-    //     }).then((result)=>{
-    //         console.log(result)
-    //     }).catch((error)=>{
-    //         console.error(error)
-    //     })
-    // }
+    function gestioniDegliErroriConCatch(){
+        return new Promise((reject)=>{
+            reject("promessa refiutata")
+        }).then((result)=>{
+            console.log(result)
+        }).catch((error)=>{
+            console.error(error)
+        })
+    }
 
-    // gestioniDegliErroriConCatch()
+    gestioniDegliErroriConCatch()
 
-    // // ----------------------------------gestioni degli errori con then e catch-------------------------------------
+    // ----------------------------------gestioni degli errori con then e catch-------------------------------------
 
-    // function gestioniDegliErroriConThenCatch(num){
-    //     return new Promise((resolve,reject)=>{
-    //         if(num == true){
-    //             resolve("promessa resolvata")
-    //         }else{
-    //             reject("promessa refuitato")
-    //         }
-    //     }).then((result)=>{
-    //         console.log(result)
-    //     }).catch((errore)=>{
-    //         console.error(errore)
-    //     })
-    // }
-    // gestioniDegliErroriConThenCatch("ciao")
+    function gestioniDegliErroriConThenCatch(num){
+        return new Promise((resolve,reject)=>{
+            if(num == true){
+                resolve("promessa resolvata")
+            }else{
+                reject("promessa refuitato")
+            }
+        }).then((result)=>{
+            console.log(result)
+        }).catch((errore)=>{
+            console.error(errore)
+        })
+    }
+    gestioniDegliErroriConThenCatch("ciao")
 
-    // // ----------------------------gestioni degli errori con una catena di promessa---------------------
+    // ----------------------------gestioni degli errori con una catena di promessa---------------------
 
-    // function gestioniDegliErroriConCatenaDiPromessa(){
-    //     return new Promise((resolve,reject)=>{
-    //         resolve("valore resolvata")
-    //         reject("valore refuitata")
-    //     }).then((result)=>{
-    //         console.log(result)
-    //     }).catch((error)=>{
-    //         console.error(error)
-    //     })
-    // }
-    // gestioniDegliErroriConCatenaDiPromessa()
+    function gestioniDegliErroriConCatenaDiPromessa(){
+        return new Promise((resolve,reject)=>{
+            resolve("valore resolvata")
+            reject("valore refuitata")
+        }).then((result)=>{
+            console.log(result)
+        }).catch((error)=>{
+            console.error(error)
+        })
+    }
+    gestioniDegliErroriConCatenaDiPromessa()
 
-    // // ------------------utiliasare promise all--------------------------------
+    // ------------------utiliasare promise all--------------------------------
 
-    // function promessa1(){
-    //     return new Promise((resolve)=>{
-    //       setTimeout(()=>{
-    //           resolve("promessa1 risolvata")
-    //       },2000)
-    //     })
-    // }
+    function promessa1(){
+        return new Promise((resolve)=>{
+          setTimeout(()=>{
+              resolve("promessa1 risolvata")
+          },2000)
+        })
+    }
 
-    //  function promessa2(){
-    //     return new Promise((resolve)=>{
-    //       setTimeout(()=>{
-    //           resolve("promessa2 risolvata")
-    //       },4000)
-    //     })
-    // }
+     function promessa2(){
+        return new Promise((resolve)=>{
+          setTimeout(()=>{
+              resolve("promessa2 risolvata")
+          },4000)
+        })
+    }
 
-    // Promise.all([promessa1(),promessa2()])
-    // .then((result)=>{
-    //     console.log(result)
-    // }).catch((error)=>{
-    //     console.error(error)
-    // })
+    Promise.all([promessa1(),promessa2()])
+    .then((result)=>{
+        console.log(result)
+    }).catch((error)=>{
+        console.error(error)
+    })
 
-    // // ----------------------------utilisare promise race------------------
+    // ----------------------------utilisare promise race------------------
 
-    // function promessarace1(){
-    //     return new Promise((resolve)=>{
-    //       setTimeout(()=>{
-    //           resolve("resultao1 risolvata")
-    //       },3000)
-    //     })
-    // }
+    function promessarace1(){
+        return new Promise((resolve)=>{
+          setTimeout(()=>{
+              resolve("resultao1 risolvata")
+          },3000)
+        })
+    }
 
-    //  function promessarace2(){
-    //     return new Promise((resolve)=>{
-    //       setTimeout(()=>{
-    //           resolve("resultao2 risolvata")
-    //       },1000)
-    //     })
-    // }
+     function promessarace2(){
+        return new Promise((resolve)=>{
+          setTimeout(()=>{
+              resolve("resultao2 risolvata")
+          },1000)
+        })
+    }
 
-    // Promise.race([promessarace1(),promessarace2()])
-    // .then((result)=>{
-    //     console.log(result)
-    // }).catch((error)=>{
-    //     console.error(error)
-    // })
+    Promise.race([promessarace1(),promessarace2()])
+    .then((result)=>{
+        console.log(result)
+    }).catch((error)=>{
+        console.error(error)
+    })
 
     // -------------------------------------------------utilisare promise.allsettled----------------
 
-//     function promiseAllSettledUno(){
-//         return new Promise((resolve)=>{
-//             resolve("promessa uno reisolvata")
-//         })
-//     }
-//     function promiseAllSettledDue(){
-//         return new Promise((resolve)=>{
-//             resolve("promessa due risolvata")
-//         })
-//     }
-//     function promiseAllSettledTre(){
-//         return new Promise((reject)=>{
-//             reject("promessa tre refiutata")
-//         })
-//     }
+    function promiseAllSettledUno(){
+        return new Promise((resolve)=>{
+            resolve("promessa uno reisolvata")
+        })
+    }
+    function promiseAllSettledDue(){
+        return new Promise((resolve)=>{
+            resolve("promessa due risolvata")
+        })
+    }
+    function promiseAllSettledTre(){
+        return new Promise((reject)=>{
+            reject("promessa tre refiutata")
+        })
+    }
 
-//     Promise.allSettled([promiseAllSettledUno(),promiseAllSettledDue(),promiseAllSettledTre()])
-//     .then((result)=>{
-//         console.log(result)
-//     }).catch((error)=>{
-//         console.error(error)
-//     })
+    Promise.allSettled([promiseAllSettledUno(),promiseAllSettledDue(),promiseAllSettledTre()])
+    .then((result)=>{
+        console.log(result)
+    }).catch((error)=>{
+        console.error(error)
+    })
 
-//     // -----------------------------------------funziona asincrona simplice-----------------------------
+    // -----------------------------------------funziona asincrona simplice-----------------------------
 
-//     async function asincronaSimplice(resultato) {
-//     //    let  resultat = resultato*2
-//         return new Promise((resolve)=>{
-//              setTimeout(()=>{
-//                 resolve(" il resultato è :",resultato)
-//             },2000)
-//         }).then((result)=>{
-//             console.log(result)
-//         })
+    async function asincronaSimplice(resultato) {
+    //    let  resultat = resultato*2
+        return new Promise((resolve)=>{
+             setTimeout(()=>{
+                resolve(" il resultato è :",resultato)
+            },2000)
+        }).then((result)=>{
+            console.log(result)
+        })
            
-//     }
-//     asincronaSimplice(4)
+    }
+    asincronaSimplice(4)
 
-//     async function init() {
-//         let res = await asincronaSimplice()
-//         console.log(res)
-//     }
-// init()
+    async function init() {
+        let res = await asincronaSimplice()
+        console.log(res)
+    }
+init()
 
 // ----------------------------------------gestione degli errori con try e catch-----------------------
 
@@ -306,74 +306,74 @@ erroriTryCatch()
 
 // --------------------------------funzione asincrone in serie--------------------
 
-// async function asincroneInSerieUno() {
-//     return new Promise((resolve)=>{
-//         setTimeout(()=>{
-//             resolve("asincroneInSerieUno risolvata")
-//         },2000)
-//     }).then((result)=>{
-//         console.log(result)
-//     })
-// }
-// asincroneInSerieUno()
+async function asincroneInSerieUno() {
+    return new Promise((resolve)=>{
+        setTimeout(()=>{
+            resolve("asincroneInSerieUno risolvata")
+        },2000)
+    }).then((result)=>{
+        console.log(result)
+    })
+}
+asincroneInSerieUno()
 
-// async function asincroneInSerieDue() {
-//     return new Promise((resolve)=>{
-//         setTimeout(()=>{
-//             resolve("asincroneInSerieDue risolvata")
-//         },3000)
-//     }).then((result)=>{
-//         console.log(result)
-//     })
-// }
-// asincroneInSerieDue()
+async function asincroneInSerieDue() {
+    return new Promise((resolve)=>{
+        setTimeout(()=>{
+            resolve("asincroneInSerieDue risolvata")
+        },3000)
+    }).then((result)=>{
+        console.log(result)
+    })
+}
+asincroneInSerieDue()
 
-// async function asincroneInSerieTre() {
-//     let result1 = await asincroneInSerieUno()
-//     console.log(result1)
-//     let result2 = await asincroneInSerieDue()
-//     console.log(result2)
-// }
-// asincroneInSerieTre()
+async function asincroneInSerieTre() {
+    let result1 = await asincroneInSerieUno()
+    console.log(result1)
+    let result2 = await asincroneInSerieDue()
+    console.log(result2)
+}
+asincroneInSerieTre()
 
 // ---------------------------eseguire una richiesta get simplice----------------
 
-// async function reichiestaGet() {
-//     try {
-//         const res = await fetch('https://dummyjson.com/posts/1')
-//         const data= await res.json()
-//         console.log("data recevuto:", data)
+async function reichiestaGet() {
+    try {
+        const res = await fetch('https://dummyjson.com/posts/1')
+        const data= await res.json()
+        console.log("data recevuto:", data)
         
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
-// reichiestaGet()
+    } catch (error) {
+        console.log(error)
+    }
+}
+reichiestaGet()
 
-// // -------------------------eseguire una richiesta POST---------------
+// -------------------------eseguire una richiesta POST---------------
 
-// async function richiestaPost() {
-//     const data = {
-//         titile: "fffew",
-//         id:1,
-//         name:"fdwd"
-//     }
-//     try {
-//         const res = await fetch("https://dummyjson.com/posts/1",{
-//             method:"POST",
-//             headers:{
-//                 'content-type': 'applicatio/json'
-//             },
-//             titile: JSON.stringify(data)
-//         })
-//         const newdata = await res.json()
-//         console.log(newdata)
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
+async function richiestaPost() {
+    const data = {
+        titile: "fffew",
+        id:1,
+        name:"fdwd"
+    }
+    try {
+        const res = await fetch("https://dummyjson.com/posts/1",{
+            method:"POST",
+            headers:{
+                'content-type': 'applicatio/json'
+            },
+            titile: JSON.stringify(data)
+        })
+        const newdata = await res.json()
+        console.log(newdata)
+    } catch (error) {
+        console.log(error)
+    }
+}
 
-// richiestaPost()
+richiestaPost()
 
 // ----------------------------------------------gestione degli errori con fecth e await-------------------
 
@@ -390,3 +390,7 @@ erroriFetchAwait()
 // ----------------------comprerendere un errore CORS-----------------
 
 
+ fetch(" http://example.com")
+    .then(response =>response.text())
+    .then(data =>console.log(data))
+    .catch(error => console.log(error))
