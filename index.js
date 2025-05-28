@@ -330,7 +330,11 @@ asincroneInSerieDue()
 
 async function asincroneInSerieTre() {
     let result1 = await asincroneInSerieUno()
+    console.log(result1)
     let result2 = await asincroneInSerieDue()
-    console.log(result1,result2)
+    console.log(result2)
 }
 asincroneInSerieTre()
+
+// ---------------------------eseguire una richiesta get simplice----------------
+
