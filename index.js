@@ -387,3 +387,6 @@ async function erroriFetchAwait() {
     }
 }
 erroriFetchAwait()
+// ----------------------comprerendere un errore CORS-----------------
+
+
