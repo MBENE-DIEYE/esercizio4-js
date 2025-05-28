@@ -246,46 +246,60 @@
 
     // -------------------------------------------------utilisare promise.allsettled----------------
 
-    function promiseAllSettledUno(){
-        return new Promise((resolve)=>{
-            resolve("promessa uno reisolvata")
-        })
-    }
-    function promiseAllSettledDue(){
-        return new Promise((resolve)=>{
-            resolve("promessa due risolvata")
-        })
-    }
-    function promiseAllSettledTre(){
-        return new Promise((reject)=>{
-            reject("promessa tre refiutata")
-        })
-    }
+//     function promiseAllSettledUno(){
+//         return new Promise((resolve)=>{
+//             resolve("promessa uno reisolvata")
+//         })
+//     }
+//     function promiseAllSettledDue(){
+//         return new Promise((resolve)=>{
+//             resolve("promessa due risolvata")
+//         })
+//     }
+//     function promiseAllSettledTre(){
+//         return new Promise((reject)=>{
+//             reject("promessa tre refiutata")
+//         })
+//     }
 
-    Promise.allSettled([promiseAllSettledUno(),promiseAllSettledDue(),promiseAllSettledTre()])
-    .then((result)=>{
-        console.log(result)
-    }).catch((error)=>{
-        console.error(error)
-    })
+//     Promise.allSettled([promiseAllSettledUno(),promiseAllSettledDue(),promiseAllSettledTre()])
+//     .then((result)=>{
+//         console.log(result)
+//     }).catch((error)=>{
+//         console.error(error)
+//     })
 
-    // -----------------------------------------funziona asincrona simplice-----------------------------
+//     // -----------------------------------------funziona asincrona simplice-----------------------------
 
-    async function asincronaSimplice(resultato) {
-    //    let  resultat = resultato*2
-        return new Promise((resolve)=>{
-             setTimeout(()=>{
-                resolve(" il resultato è :",resultato)
-            },2000)
-        }).then((result)=>{
-            console.log(result)
-        })
+//     async function asincronaSimplice(resultato) {
+//     //    let  resultat = resultato*2
+//         return new Promise((resolve)=>{
+//              setTimeout(()=>{
+//                 resolve(" il resultato è :",resultato)
+//             },2000)
+//         }).then((result)=>{
+//             console.log(result)
+//         })
            
-    }
-    asincronaSimplice(4)
+//     }
+//     asincronaSimplice(4)
 
-    async function init() {
-        let res = await asincronaSimplice()
-        console.log(res)
+//     async function init() {
+//         let res = await asincronaSimplice()
+//         console.log(res)
+//     }
+// init()
+
+// ----------------------------------------gestione degli errori con try e catch-----------------------
+
+async function erroriTryCatch() {
+    try {
+        // ho utilisato la functione -gestioni degli errori con then e catch-
+        let resultat = await gestioniDegliErroriConThenCatch()
+        console.log(resultat)
+    } catch (error) {
+        console.log(error)
     }
-init()
+    
+}
+erroriTryCatch()
