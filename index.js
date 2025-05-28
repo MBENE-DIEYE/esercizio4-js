@@ -338,24 +338,52 @@ erroriTryCatch()
 
 // ---------------------------eseguire una richiesta get simplice----------------
 
-async function reichiestaGet() {
-    try {
-        const res = await fetch('https://dummyjson.com/posts/1')
-        const data= await res.json()
-        console.log("data recevuto:", data)
+// async function reichiestaGet() {
+//     try {
+//         const res = await fetch('https://dummyjson.com/posts/1')
+//         const data= await res.json()
+//         console.log("data recevuto:", data)
         
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
+// reichiestaGet()
+
+// // -------------------------eseguire una richiesta POST---------------
+
+// async function richiestaPost() {
+//     const data = {
+//         titile: "fffew",
+//         id:1,
+//         name:"fdwd"
+//     }
+//     try {
+//         const res = await fetch("https://dummyjson.com/posts/1",{
+//             method:"POST",
+//             headers:{
+//                 'content-type': 'applicatio/json'
+//             },
+//             titile: JSON.stringify(data)
+//         })
+//         const newdata = await res.json()
+//         console.log(newdata)
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
+
+// richiestaPost()
+
+// ----------------------------------------------gestione degli errori con fecth e await-------------------
+
+async function erroriFetchAwait() {
+    try {
+        const res = await fetch("https://dummyjson.com/posts/1")
+        const result = await res.json()
+        console.log(result)
     } catch (error) {
-        console.log(error)
+        console.error(error)
     }
 }
-reichiestaGet()
-
-// -------------------------eseguire una richiesta POST---------------
-
-async function richiestaPost() {
-    try {
-        
-    } catch (error) {
-        
-    }
-}
+erroriFetchAwait()
