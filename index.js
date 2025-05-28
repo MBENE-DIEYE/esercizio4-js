@@ -306,35 +306,56 @@ erroriTryCatch()
 
 // --------------------------------funzione asincrone in serie--------------------
 
-async function asincroneInSerieUno() {
-    return new Promise((resolve)=>{
-        setTimeout(()=>{
-            resolve("asincroneInSerieUno risolvata")
-        },2000)
-    }).then((result)=>{
-        console.log(result)
-    })
-}
-asincroneInSerieUno()
+// async function asincroneInSerieUno() {
+//     return new Promise((resolve)=>{
+//         setTimeout(()=>{
+//             resolve("asincroneInSerieUno risolvata")
+//         },2000)
+//     }).then((result)=>{
+//         console.log(result)
+//     })
+// }
+// asincroneInSerieUno()
 
-async function asincroneInSerieDue() {
-    return new Promise((resolve)=>{
-        setTimeout(()=>{
-            resolve("asincroneInSerieDue risolvata")
-        },3000)
-    }).then((result)=>{
-        console.log(result)
-    })
-}
-asincroneInSerieDue()
+// async function asincroneInSerieDue() {
+//     return new Promise((resolve)=>{
+//         setTimeout(()=>{
+//             resolve("asincroneInSerieDue risolvata")
+//         },3000)
+//     }).then((result)=>{
+//         console.log(result)
+//     })
+// }
+// asincroneInSerieDue()
 
-async function asincroneInSerieTre() {
-    let result1 = await asincroneInSerieUno()
-    console.log(result1)
-    let result2 = await asincroneInSerieDue()
-    console.log(result2)
-}
-asincroneInSerieTre()
+// async function asincroneInSerieTre() {
+//     let result1 = await asincroneInSerieUno()
+//     console.log(result1)
+//     let result2 = await asincroneInSerieDue()
+//     console.log(result2)
+// }
+// asincroneInSerieTre()
 
 // ---------------------------eseguire una richiesta get simplice----------------
 
+async function reichiestaGet() {
+    try {
+        const res = await fetch('https://dummyjson.com/posts/1')
+        const data= await res.json()
+        console.log("data recevuto:", data)
+        
+    } catch (error) {
+        console.log(error)
+    }
+}
+reichiestaGet()
+
+// -------------------------eseguire una richiesta POST---------------
+
+async function richiestaPost() {
+    try {
+        
+    } catch (error) {
+        
+    }
+}
