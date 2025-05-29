@@ -124,59 +124,68 @@
 
     // ----------------------------------------catena di promessa con condizioni-------------------------------------
 
-    function primaPromessaConCondizioni(numero){
-        return new Promise((resolve,reject)=>{
+    // function primaPromessaConCondizioni(numero){
+    //     return new Promise((resolve)=>{
           
-            setTimeout(()=>{
-                  if(numero % 2 === 0){
-                resolve("il numero è pari")
-                  }
-                  else{
-                    reject("il numero è dispari")
-                  }
-            },1000)
-        })
+    //         setTimeout(()=>{
+    //             resolve("il numero è pari è:",numero)
+    //         },1000)
+    //     })
         
-    }
-    function secondaPromessaConCondizioni(numero){
-        return new Promise((resolve,reject)=>{
+    // }
+    // function secondaPromessaConCondizioni(numero){
+    //     return new Promise((resolve,reject)=>{
           
-            setTimeout(()=>{
-                  if(numero % 2 !== 0){
-                resolve("il numero è dispari")
-                  }
-                  else{
-                    reject("il numero è pari")
-                  }
-            },1000)
-        })
+    //         setTimeout(()=>{
+    //               if(numero % 2 === 0){
+    //             resolve("il numero è pari")
+    //               }
+    //               else{
+    //                 reject("il numero è dispari")
+    //               }
+    //         },1000)
+    //     })
         
-    }
+    // }
 
 
-    primaPromessaConCondizioni(6)
-    .then(res =>secondaPromessaConCondizioni(res)) 
-    .then(data => console.log(data))
-    .catch(error => console.error(error))
+    // primaPromessaConCondizioni(7)
+    // .then(res =>secondaPromessaConCondizioni(res)) 
+    // .then(data => console.log(data))
+    // .catch(error => console.error(error))
 
    
 
     // // --------------------------------catena di promessa con gestioni degli errori------------------
 
-    // function gestioniDegliErrori(item){
-    //     return new Promise((resolve,reject)=>{
-    //         if(item){
-    //             resolve("valore reisolvato")
-    //         }else{
-    //             reject("valore rifiutato")
-    //         }
-    //     }).then((resultato)=>{
-    //         console.log(resultato)
-    //     }),(error)=>{
-    //         console.error(error)
-    //     }
-    // }
-    // gestioniDegliErrori("ciao")
+    function primaPromessaGestioniDegliErrori(item){
+        return new Promise((resolve,reject)=>{
+            if(item){
+                resolve("valore reisolvato")
+            }else{
+                reject("valore rifiutato")
+            }
+        }).then((resultato)=>{
+            console.log(resultato)
+        }),(error)=>{
+            console.error(error)
+        }
+    }
+  
+    function secondaPromessaGestioniDegliErrori(item){
+        return new Promise((resolve,reject)=>{
+            if(item){
+                resolve("valore reisolvato")
+            }else{
+                reject("valore rifiutato")
+            }
+        }).then((resultato)=>{
+            console.log(resultato)
+        }),(error)=>{
+            console.error(error)
+        }
+    }
+    gestioniDegliErrori("ciao")
 
     // // -----------------------------------------------gestioni degli errori con catch-----------------
 
