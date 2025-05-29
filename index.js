@@ -102,61 +102,61 @@
 
     // -------------------------catena di promessa simplice-------------------------------
 
-    // function primacatenaDiPromessa(numero){
-    //     return new Promise((resolve)=>{
-    //         setTimeout(()=>{
-    //             resolve(numero * 2)
-    //         },1000)
-    //     })
-    // }
-    // function secondacatenaDiPromessa(numero){
-    //     return new Promise((resolve)=>{
-    //         setTimeout(()=>{
-    //             resolve(numero + 3)
-    //         },1000)
-    //     }) 
-    // }
+    function primacatenaDiPromessa(numero){
+        return new Promise((resolve)=>{
+            setTimeout(()=>{
+                resolve(numero * 2)
+            },1000)
+        })
+    }
+    function secondacatenaDiPromessa(numero){
+        return new Promise((resolve)=>{
+            setTimeout(()=>{
+                resolve(numero + 3)
+            },1000)
+        }) 
+    }
     
-    // primacatenaDiPromessa(5)
-    // .then(res => secondacatenaDiPromessa(res))
-    // .then(data => console.log(data))
-    // .catch(error => console.error(error))
+    primacatenaDiPromessa(5)
+    .then(res => secondacatenaDiPromessa(res))
+    .then(data => console.log(data))
+    .catch(error => console.error(error))
 
     // ----------------------------------------catena di promessa con condizioni-------------------------------------
 
-    // function primaPromessaConCondizioni(numero){
-    //     return new Promise((resolve)=>{
+    function primaPromessaConCondizioni(numero){
+        return new Promise((resolve)=>{
           
-    //         setTimeout(()=>{
-    //             resolve("il numero è pari è:",numero)
-    //         },1000)
-    //     })
+            setTimeout(()=>{
+                resolve("il numero è pari è:",numero)
+            },1000)
+        })
         
-    // }
-    // function secondaPromessaConCondizioni(numero){
-    //     return new Promise((resolve,reject)=>{
+    }
+    function secondaPromessaConCondizioni(numero){
+        return new Promise((resolve,reject)=>{
           
-    //         setTimeout(()=>{
-    //               if(numero % 2 === 0){
-    //             resolve("il numero è pari")
-    //               }
-    //               else{
-    //                 reject("il numero è dispari")
-    //               }
-    //         },1000)
-    //     })
+            setTimeout(()=>{
+                  if(numero % 2 === 0){
+                resolve("il numero è pari")
+                  }
+                  else{
+                    reject("il numero è dispari")
+                  }
+            },1000)
+        })
         
-    // }
+    }
 
 
-    // primaPromessaConCondizioni(7)
-    // .then(res =>secondaPromessaConCondizioni(res)) 
-    // .then(data => console.log(data))
-    // .catch(error => console.error(error))
+    primaPromessaConCondizioni(7)
+    .then(res =>secondaPromessaConCondizioni(res)) 
+    .then(data => console.log(data))
+    .catch(error => console.error(error))
 
    
 
-    // // --------------------------------catena di promessa con gestioni degli errori------------------
+    // --------------------------------catena di promessa con gestioni degli errori------------------
 
     function primaPromessaGestioniDegliErrori(item){
         return new Promise((resolve)=>{
@@ -310,23 +310,23 @@
 
     // -----------------------------------------funziona asincrona simplice-----------------------------
 
-//      function asincronaSimplice(resultato) {
-//        try {
-//              return new Promise((resolve)=>{
-//              setTimeout(()=>{
-//                 resolve(resultato)
-//             },2000)
-//         }) 
-//        } catch (error) {
-//             console.log(error)
-//        }
-//     }
+     function asincronaSimplice(resultato) {
+       try {
+             return new Promise((resolve)=>{
+             setTimeout(()=>{
+                resolve(resultato)
+            },2000)
+        }) 
+       } catch (error) {
+            console.log(error)
+       }
+    }
 
-//     async function init() {
-//         let res = await asincronaSimplice("buonasera")
-//         console.log(" il resultato è :"+res)
-//     }
-// init()
+    async function init() {
+        let res = await asincronaSimplice("buonasera")
+        console.log(" il resultato è :"+res)
+    }
+init()
 
 // // ----------------------------------------gestione degli errori con try e catch-----------------------
 
@@ -344,35 +344,31 @@
 
 // --------------------------------funzione asincrone in serie--------------------
 
-// async function asincroneInSerieUno() {
-//     return new Promise((resolve)=>{
-//         setTimeout(()=>{
-//             resolve("asincroneInSerieUno risolvata")
-//         },2000)
-//     }).then((result)=>{
-//         console.log(result)
-//     })
-// }
-// asincroneInSerieUno()
-
-// async function asincroneInSerieDue() {
-//     return new Promise((resolve)=>{
-//         setTimeout(()=>{
-//             resolve("asincroneInSerieDue risolvata")
-//         },3000)
-//     }).then((result)=>{
-//         console.log(result)
-//     })
-// }
-// asincroneInSerieDue()
-
-// async function asincroneInSerieTre() {
-//     let result1 = await asincroneInSerieUno()
-//     console.log(result1)
-//     let result2 = await asincroneInSerieDue()
-//     console.log(result2)
-// }
-// asincroneInSerieTre()
+ function asincroneInSerieUno() {
+    return new Promise((resolve)=>{
+        setTimeout(()=>{
+            resolve("asincroneInSerieUno risolvata")
+        },2000)
+    })
+}
+ function asincroneInSerieDue() {
+    return new Promise((resolve)=>{
+        setTimeout(()=>{
+            resolve("asincroneInSerieDue risolvata")
+        },3000)
+    })
+}
+async function asincroneInSerieTre() {
+    try {
+        let result1 = await asincroneInSerieUno()
+        console.log(result1)
+        let result2 = await asincroneInSerieDue()
+        console.log(result2)
+    } catch (error) {
+        console.error(error)
+    }
+}
+asincroneInSerieTre()
 
 // ---------------------------eseguire una richiesta get simplice----------------
 
@@ -390,26 +386,26 @@
 
 // // -------------------------eseguire una richiesta POST---------------
 
-// async function richiestaPost() {
-//     const data = {
-//         titile: "fffew",
-//         id:1,
-//         name:"fdwd"
-//     }
-//     try {
-//         const res = await fetch("https://dummyjson.com/posts/1",{
-//             method:"POST",
-//             headers:{
-//                 'content-type': 'applicatio/json'
-//             },
-//             body: JSON.stringify(data)
-//         })
-//         const newdata = await res.json()
-//         console.log(newdata)
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
+async function richiestaPost() {
+    const data = {
+        titile: "fffew",
+        id:1,
+        name:"fdwd"
+    }
+    try {
+        const res = await fetch("https://dummyjson.com/posts/1",{
+            method:"POST",
+            headers:{
+                'content-type': 'applicatio/json'
+            },
+            body: JSON.stringify(data)
+        })
+        const newdata = await res.json()
+        console.log(newdata)
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 // richiestaPost()
 
