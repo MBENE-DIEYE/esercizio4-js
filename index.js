@@ -102,45 +102,64 @@
 
     // -------------------------catena di promessa simplice-------------------------------
 
-    function primacatenaDiPromessa(numero){
-        return new Promise((resolve)=>{
+    // function primacatenaDiPromessa(numero){
+    //     return new Promise((resolve)=>{
+    //         setTimeout(()=>{
+    //             resolve(numero * 2)
+    //         },1000)
+    //     })
+    // }
+    // function secondacatenaDiPromessa(numero){
+    //     return new Promise((resolve)=>{
+    //         setTimeout(()=>{
+    //             resolve(numero + 3)
+    //         },1000)
+    //     }) 
+    // }
+    
+    // primacatenaDiPromessa(5)
+    // .then(res => secondacatenaDiPromessa(res))
+    // .then(data => console.log(data))
+    // .catch(error => console.error(error))
+
+    // ----------------------------------------catena di promessa con condizioni-------------------------------------
+
+    function primaPromessaConCondizioni(numero){
+        return new Promise((resolve,reject)=>{
+          
             setTimeout(()=>{
-                resolve(numero * 2)
+                  if(numero % 2 === 0){
+                resolve("il numero è pari")
+                  }
+                  else{
+                    reject("il numero è dispari")
+                  }
             },1000)
         })
         
     }
-    
-    function secondacatenaDiPromessa(numero){
-        return new Promise((resolve)=>{
+    function secondaPromessaConCondizioni(numero){
+        return new Promise((resolve,reject)=>{
+          
             setTimeout(()=>{
-                resolve(numero + 3)
+                  if(numero % 2 !== 0){
+                resolve("il numero è dispari")
+                  }
+                  else{
+                    reject("il numero è pari")
+                  }
             },1000)
-        }) 
+        })
+        
     }
-    
-    primacatenaDiPromessa(5)
-    .then(res => secondacatenaDiPromessa(res))
+
+
+    primaPromessaConCondizioni(6)
+    .then(res =>secondaPromessaConCondizioni(res)) 
     .then(data => console.log(data))
     .catch(error => console.error(error))
 
-    // ----------------------------------------catena di promessa con condizioni-------------------------------------
-
-    // function promessaConCondizioni(numero){
-    //     return new Promise((resolve)=>{
-    //         setTimeout(()=>{
-    //             resolve("il numero è:",numero)
-    //         },1000)
-    //     }).then(()=>{
-    //       if(numero % 2===0){
-    //         console.log("il numero è pari")
-    //       }else{
-    //         console.log("il numero è dispari")
-    //       }
-    //     })
-    // }
-
-    // promessaConCondizioni(6)
+   
 
     // // --------------------------------catena di promessa con gestioni degli errori------------------
 
