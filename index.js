@@ -159,33 +159,23 @@
     // // --------------------------------catena di promessa con gestioni degli errori------------------
 
     function primaPromessaGestioniDegliErrori(item){
-        return new Promise((resolve,reject)=>{
-            if(item){
-                resolve("valore reisolvato")
-            }else{
-                reject("valore rifiutato")
-            }
-        }).then((resultato)=>{
-            console.log(resultato)
-        }),(error)=>{
-            console.error(error)
-        }
+        return new Promise((resolve)=>{
+            item = item*2
+                resolve( item)
+           
+        })
     }
   
     function secondaPromessaGestioniDegliErrori(item){
-        return new Promise((resolve,reject)=>{
-            if(item){
-                resolve("valore reisolvato")
-            }else{
-                reject("valore rifiutato")
-            }
-        }).then((resultato)=>{
-            console.log(resultato)
-        }),(error)=>{
-            console.error(error)
-        }
+        return new Promise((resolve)=>{
+           const resultato =item + 10
+            resolve(resultato)
+        })
     }
-    gestioniDegliErrori("ciao")
+    primaPromessaGestioniDegliErrori(9)
+    .then(res => secondaPromessaGestioniDegliErrori(res))
+    .then(data => console.log(data))
+    .catch(error => console.error(error))
 
     // // -----------------------------------------------gestioni degli errori con catch-----------------
 
