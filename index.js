@@ -210,17 +210,28 @@
 
     // // ----------------------------gestioni degli errori con una catena di promessa---------------------
 
-    function gestioniDegliErroriConCatenaDiPromessa(){
+    function gestioniDegliErroriConCatenaDiPromessa(num){
         return new Promise((resolve,reject)=>{
-            resolve("valore resolvata")
-            reject("valore refuitata")
-        }).then((result)=>{
-            console.log(result)
-        }).catch((error)=>{
-            console.error(error)
-        })
+            if(num > 10){
+                resolve("valore resolvata")
+            }
+            else{
+                  reject("valore refuitata")
+            }
+        }) 
     }
-    gestioniDegliErroriConCatenaDiPromessa()
+
+    function gestioniDegliErroriConCatenaDiPromessaDue(num){
+        return new Promise((resolve)=>{
+        if(num < 20){
+            resolve(num)
+        }
+        }) 
+    }
+    gestioniDegliErroriConCatenaDiPromessa(8)
+    .then(res => gestioniDegliErroriConCatenaDiPromessaDue(res))
+    .then(data => console.log(data))
+    .catch(error => console.error(error))
 
     // ------------------utiliasare promise all--------------------------------
 
