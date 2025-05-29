@@ -151,34 +151,34 @@
 
     // -----------------------------------------------gestioni degli errori con catch-----------------
 
-    function gestioniDegliErroriConCatch(){
-        return new Promise((reject)=>{
-            reject("promessa refiutata")
-        }).then((result)=>{
-            console.log(result)
-        }).catch((error)=>{
-            console.error(error)
-        })
-    }
+    // function gestioniDegliErroriConCatch(){
+    //     return new Promise((reject)=>{
+    //         reject("promessa refiutata")
+    //     }).then((result)=>{
+    //         console.log(result)
+    //     }).catch((error)=>{
+    //         console.error(error)
+    //     })
+    // }
 
-    gestioniDegliErroriConCatch()
+    // gestioniDegliErroriConCatch()
 
-    // ----------------------------------gestioni degli errori con then e catch-------------------------------------
+    // // ----------------------------------gestioni degli errori con then e catch-------------------------------------
 
-    function gestioniDegliErroriConThenCatch(num){
-        return new Promise((resolve,reject)=>{
-            if(num == true){
-                resolve("promessa resolvata")
-            }else{
-                reject("promessa refuitato")
-            }
-        }).then((result)=>{
-            console.log(result)
-        }).catch((errore)=>{
-            console.error(errore)
-        })
-    }
-    gestioniDegliErroriConThenCatch("ciao")
+    // function gestioniDegliErroriConThenCatch(num){
+    //     return new Promise((resolve,reject)=>{
+    //         if(num == true){
+    //             resolve("promessa resolvata")
+    //         }else{
+    //             reject("promessa refuitato")
+    //         }
+    //     }).then((result)=>{
+    //         console.log(result)
+    //     }).catch((errore)=>{
+    //         console.error(errore)
+    //     })
+    // }
+    // gestioniDegliErroriConThenCatch("ciao")
 
     // ----------------------------gestioni degli errori con una catena di promessa---------------------
 
@@ -196,113 +196,112 @@
 
     // ------------------utiliasare promise all--------------------------------
 
-    function promessa1(){
-        return new Promise((resolve)=>{
-          setTimeout(()=>{
-              resolve("promessa1 risolvata")
-          },2000)
-        })
-    }
+    // function promessa1(){
+    //     return new Promise((resolve)=>{
+    //       setTimeout(()=>{
+    //           resolve("promessa1 risolvata")
+    //       },2000)
+    //     })
+    // }
 
-     function promessa2(){
-        return new Promise((resolve)=>{
-          setTimeout(()=>{
-              resolve("promessa2 risolvata")
-          },4000)
-        })
-    }
+    //  function promessa2(){
+    //     return new Promise((resolve)=>{
+    //       setTimeout(()=>{
+    //           resolve("promessa2 risolvata")
+    //       },4000)
+    //     })
+    // }
 
-    Promise.all([promessa1(),promessa2()])
-    .then((result)=>{
-        console.log(result)
-    }).catch((error)=>{
-        console.error(error)
-    })
+    // Promise.all([promessa1(),promessa2()])
+    // .then((result)=>{
+    //     console.log(result)
+    // }).catch((error)=>{
+    //     console.error(error)
+    // })
 
-    // ----------------------------utilisare promise race------------------
+    // // ----------------------------utilisare promise race------------------
 
-    function promessarace1(){
-        return new Promise((resolve)=>{
-          setTimeout(()=>{
-              resolve("resultao1 risolvata")
-          },3000)
-        })
-    }
+    // function promessarace1(){
+    //     return new Promise((resolve)=>{
+    //       setTimeout(()=>{
+    //           resolve("resultao1 risolvata")
+    //       },3000)
+    //     })
+    // }
 
-     function promessarace2(){
-        return new Promise((resolve)=>{
-          setTimeout(()=>{
-              resolve("resultao2 risolvata")
-          },1000)
-        })
-    }
+    //  function promessarace2(){
+    //     return new Promise((resolve)=>{
+    //       setTimeout(()=>{
+    //           resolve("resultao2 risolvata")
+    //       },1000)
+    //     })
+    // }
 
-    Promise.race([promessarace1(),promessarace2()])
-    .then((result)=>{
-        console.log(result)
-    }).catch((error)=>{
-        console.error(error)
-    })
+    // Promise.race([promessarace1(),promessarace2()])
+    // .then((result)=>{
+    //     console.log(result)
+    // }).catch((error)=>{
+    //     console.error(error)
+    // })
 
-    // -------------------------------------------------utilisare promise.allsettled----------------
+    // // -------------------------------------------------utilisare promise.allsettled----------------
 
-    function promiseAllSettledUno(){
-        return new Promise((resolve)=>{
-            resolve("promessa uno reisolvata")
-        })
-    }
-    function promiseAllSettledDue(){
-        return new Promise((resolve)=>{
-            resolve("promessa due risolvata")
-        })
-    }
-    function promiseAllSettledTre(){
-        return new Promise((reject)=>{
-            reject("promessa tre refiutata")
-        })
-    }
+    // function promiseAllSettledUno(){
+    //     return new Promise((resolve)=>{
+    //         resolve("promessa uno reisolvata")
+    //     })
+    // }
+    // function promiseAllSettledDue(){
+    //     return new Promise((resolve)=>{
+    //         resolve("promessa due risolvata")
+    //     })
+    // }
+    // function promiseAllSettledTre(){
+    //     return new Promise((reject)=>{
+    //         reject("promessa tre refiutata")
+    //     })
+    // }
 
-    Promise.allSettled([promiseAllSettledUno(),promiseAllSettledDue(),promiseAllSettledTre()])
-    .then((result)=>{
-        console.log(result)
-    }).catch((error)=>{
-        console.error(error)
-    })
+    // Promise.allSettled([promiseAllSettledUno(),promiseAllSettledDue(),promiseAllSettledTre()])
+    // .then((result)=>{
+    //     console.log(result)
+    // }).catch((error)=>{
+    //     console.error(error)
+    // })
 
     // -----------------------------------------funziona asincrona simplice-----------------------------
 
-    async function asincronaSimplice(resultato) {
-    //    let  resultat = resultato*2
-        return new Promise((resolve)=>{
+     function asincronaSimplice(resultato) {
+       try {
+             return new Promise((resolve)=>{
              setTimeout(()=>{
-                resolve(" il resultato è :",resultato)
+                resolve(resultato)
             },2000)
-        }).then((result)=>{
-            console.log(result)
-        })
-           
+        }) 
+       } catch (error) {
+            console.log(error)
+       }
     }
-    asincronaSimplice(4)
 
     async function init() {
-        let res = await asincronaSimplice()
-        console.log(res)
+        let res = await asincronaSimplice("buonasera")
+        console.log(" il resultato è :"+res)
     }
 init()
 
 // ----------------------------------------gestione degli errori con try e catch-----------------------
 
-async function erroriTryCatch() {
-    try {
-        // ho utilisato la functione -gestioni degli errori con then e catch-
-        let resultat = await gestioniDegliErroriConThenCatch()
-        console.log(resultat)
-    } catch (error) {
-        console.log(error)
-    }
+// async function erroriTryCatch() {
+//     try {
+//         // ho utilisato la functione -gestioni degli errori con then e catch-
+//         let resultat = await gestioniDegliErroriConThenCatch()
+//         console.log(resultat)
+//     } catch (error) {
+//         console.log(error)
+//     }
     
-}
-erroriTryCatch()
+// }
+// erroriTryCatch()
 
 // --------------------------------funzione asincrone in serie--------------------
 
@@ -338,59 +337,59 @@ asincroneInSerieTre()
 
 // ---------------------------eseguire una richiesta get simplice----------------
 
-async function reichiestaGet() {
-    try {
-        const res = await fetch('https://dummyjson.com/posts/1')
-        const data= await res.json()
-        console.log("data recevuto:", data)
+// async function reichiestaGet() {
+//     try {
+//         const res = await fetch('https://dummyjson.com/posts/1')
+//         const data= await res.json()
+//         console.log("data recevuto:", data)
         
-    } catch (error) {
-        console.log(error)
-    }
-}
-reichiestaGet()
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
+// reichiestaGet()
 
-// -------------------------eseguire una richiesta POST---------------
+// // -------------------------eseguire una richiesta POST---------------
 
-async function richiestaPost() {
-    const data = {
-        titile: "fffew",
-        id:1,
-        name:"fdwd"
-    }
-    try {
-        const res = await fetch("https://dummyjson.com/posts/1",{
-            method:"POST",
-            headers:{
-                'content-type': 'applicatio/json'
-            },
-            body: JSON.stringify(data)
-        })
-        const newdata = await res.json()
-        console.log(newdata)
-    } catch (error) {
-        console.log(error)
-    }
-}
+// async function richiestaPost() {
+//     const data = {
+//         titile: "fffew",
+//         id:1,
+//         name:"fdwd"
+//     }
+//     try {
+//         const res = await fetch("https://dummyjson.com/posts/1",{
+//             method:"POST",
+//             headers:{
+//                 'content-type': 'applicatio/json'
+//             },
+//             body: JSON.stringify(data)
+//         })
+//         const newdata = await res.json()
+//         console.log(newdata)
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }
 
-richiestaPost()
+// richiestaPost()
 
-// ----------------------------------------------gestione degli errori con fecth e await-------------------
+// // ----------------------------------------------gestione degli errori con fecth e await-------------------
 
-async function erroriFetchAwait() {
-    try {
-        const res = await fetch("https://dummyjson.com/posts/1")
-        const result = await res.json()
-        console.log(result)
-    } catch (error) {
-        console.error(error)
-    }
-}
-erroriFetchAwait()
-// ----------------------comprerendere un errore CORS-----------------
+// async function erroriFetchAwait() {
+//     try {
+//         const res = await fetch("https://dummyjson.com/posts/1")
+//         const result = await res.json()
+//         console.log(result)
+//     } catch (error) {
+//         console.error(error)
+//     }
+// }
+// erroriFetchAwait()
+// // ----------------------comprerendere un errore CORS-----------------
 
 
- fetch(" http://example.com")
-    .then(response =>response.text())
-    .then(data =>console.log(data))
-    .catch(error => console.log(error))
+//  fetch(" http://example.com")
+//     .then(response =>response.text())
+//     .then(data =>console.log(data))
+//     .catch(error => console.log(error))
