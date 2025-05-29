@@ -364,7 +364,7 @@ async function richiestaPost() {
             headers:{
                 'content-type': 'applicatio/json'
             },
-            titile: JSON.stringify(data)
+            body: JSON.stringify(data)
         })
         const newdata = await res.json()
         console.log(newdata)
